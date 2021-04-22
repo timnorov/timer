@@ -1,7 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
 
-
-    //Timer
     function countTimer(deadline) {
         const timerHours = document.querySelector('#timer-hours'),
             timerMinutes = document.querySelector('#timer-minutes'),
@@ -41,9 +39,8 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        updateClock();
+        setTimeout(updateClock(), 0);
     }
 
     countTimer('1 july 2021');
-    // setInterval(countTimer, 1000, '1 july 2021')
 });
