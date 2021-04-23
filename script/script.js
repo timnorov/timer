@@ -16,7 +16,6 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         function updateClock() {
-            console.log('hello');
             const timer = getTimeRemaining();
 
             if (timer.hours < 10) {
