@@ -16,7 +16,6 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         function updateClock() {
-            console.log('hello');
             const timer = getTimeRemaining();
 
             if (timer.hours < 10) {
@@ -30,6 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 timerMinutes.textContent = timer.minutes;
                 timerSeconds.textContent = timer.seconds;
             }
+            console.log(getTimeRemaining());
 
             if (timer.timeRemaining > 0) {
                 setTimeout(updateClock, 1000);
@@ -42,7 +42,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(updateClock(), 0);
     }
-    countTimer('1 july 2021');
+    countTimer('1 July 2021');
 
     //меню
     const toggleMenu = () => {
@@ -52,34 +52,50 @@ window.addEventListener('DOMContentLoaded', () => {
             closeBtn = document.querySelector('.close-btn'),
             menuItems = menu.querySelectorAll('ul>li');
 
-        const handlerMenu = () => {
-            if (window.screen.width >= 768) {
-                menu.classList.toggle('active-menu');
+        // const handlerMenu = () => {
+        //     if (window.screen.width >= 768) {
+        //         menu.classList.toggle('active-menu');
+        //     } else {
+        //         if (!menu.style.transform || menu.style.transform === `translate(-100%)`) {
+        //             menu.style.transform = `translate(0)`;
+        //         } else {
+        //             menu.style.transform = `translate(-100%)`;
+        //         }
+        //     }
+        // };
+        // btnMenu.addEventListener('click', handlerMenu);
+        // closeBtn.addEventListener('click', handlerMenu);
+
+        document.addEventListener('click', (event) => {
+            let target = event.target;
+
+            if (target.classList.contains('close-btn') || target.tagName === 'a'){
+                menu.style.transform = `translate(-100%)`;
+                target.scrollIntoView({ behavior: 'smooth' })
+
+                
             } else {
-                if (!menu.style.transform || menu.style.transform === `translate(-100%)`) {
-                    menu.style.transform = `translate(0)`;
-                } else {
+                target = target.closest('.menu');
+                if(!target){
                     menu.style.transform = `translate(-100%)`;
                 }
             }
-        };
-        btnMenu.addEventListener('click', handlerMenu);
-        closeBtn.addEventListener('click', handlerMenu);
+        });
 
-        menuItems.forEach(elem => elem.addEventListener('click', handlerMenu));
+        // menuItems.forEach(elem => elem.addEventListener('click', handlerMenu));
 
-        for (let i = 0; i < menuItems.length; i++) {
-            menuItems[i].addEventListener('click', event => {
-                event.preventDefault();
+        // for (let i = 0; i < menuItems.length; i++) {
+        //     menuItems[i].addEventListener('click', event => {
+        //         event.preventDefault();
 
-                const blockID = event.target.getAttribute('href').substr(1);
+        //         const blockID = event.target.getAttribute('href').substr(1);
 
-                document.getElementById(blockID).scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
-                });
-            });
-        }
+        //         document.getElementById(blockID).scrollIntoView({
+        //             behavior: 'smooth',
+        //             block: 'start',
+        //         });
+        //     });
+        // }
         const mouseBtn = document.querySelector('a[href="#service-block"]');
         mouseBtn.addEventListener('click', e => {
             e.preventDefault();
