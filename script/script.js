@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-
+    'use strict';
     function countTimer(deadline) {
         const timerHours = document.querySelector('#timer-hours'),
             timerMinutes = document.querySelector('#timer-minutes'),
@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         function updateClock() {
             const timer = getTimeRemaining();
-            
+
             if (timer.hours < 10) {
                 timerHours.textContent = '0' + timer.hours;
             } else if (timer.minutes < 10) {
@@ -31,16 +31,14 @@ window.addEventListener('DOMContentLoaded', () => {
             }
 
             if (timer.timeRemaining > 0) {
-                setInterval(updateClock, 1000);
+                setTimeout(updateClock, 1000);
             } else {
                 timerHours.textContent = '00';
                 timerMinutes.textContent = '00';
                 timerSeconds.textContent = '00';
             }
         }
-
         setTimeout(updateClock(), 0);
     }
-
     countTimer('1 july 2021');
 });
