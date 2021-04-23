@@ -16,6 +16,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         function updateClock() {
+            console.log('hello');
             const timer = getTimeRemaining();
 
             if (timer.hours < 10) {
@@ -31,7 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }
 
             if (timer.timeRemaining > 0) {
-                setInterval(updateClock, 1000);
+                setTimeout(updateClock, 1000);
             } else {
                 timerHours.textContent = '00';
                 timerMinutes.textContent = '00';
