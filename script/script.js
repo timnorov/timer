@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', () => {
             timerSeconds = document.querySelector('#timer-seconds');
 
         function getTimeRemaining() {
-            const dateStop = new Date(deadline).getTime(),
+            let dateStop = new Date(deadline).getTime(),
                 dateNow = new Date().getTime(),
                 timeRemaining = (dateStop - dateNow) / 1000,
                 seconds = Math.floor(timeRemaining % 60),
@@ -18,27 +18,20 @@ window.addEventListener('DOMContentLoaded', () => {
         function updateClock() {
             const timer = getTimeRemaining();
 
-            if (timer.hours < 10) {
-                timerHours.textContent = '0' + timer.hours;
-            } else if (timer.minutes < 10) {
-                timerMinutes.textContent = '0' + timer.minutes;
-            } else if (timer.seconds < 10) {
-                timerSeconds.textContent = '0' + timer.seconds;
-            } else {
-                timerHours.textContent = timer.hours;
-                timerMinutes.textContent = timer.minutes;
-                timerSeconds.textContent = timer.seconds;
-            }
+            timerHours.innerHTML = ('0' + timer.hours).slice(-2);
+            timerMinutes.innerHTML = ('0' + timer.minutes).slice(-2);
+            timerSeconds.innerHTML = ('0' + timer.seconds).slice(-2);
 
-            if (timer.timeRemaining > 0) {
-                setTimeout(updateClock, 1000);
-            } else {
+            if (timer.timeRemaining <= 0) {
+                clearInterval(timeInterval);
                 timerHours.textContent = '00';
                 timerMinutes.textContent = '00';
                 timerSeconds.textContent = '00';
             }
+
         }
-        setTimeout(updateClock(), 0);
+        updateClock();
+        const timeInterval = setInterval(updateClock, 1000);
     }
-    countTimer('1 july 2021');
+    countTimer('30 April 2021');
 });
