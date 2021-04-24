@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-
+    'use strict';
     function countTimer(deadline) {
         const timerHours = document.querySelector('#timer-hours'),
             timerMinutes = document.querySelector('#timer-minutes'),
