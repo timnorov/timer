@@ -14,6 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 hours = Math.floor(timeRemaining / 60 / 60);
             return { timeRemaining, hours, minutes, seconds };
         }
+        const timeInterval = setInterval(updateClock, 1000);
 
         function updateClock() {
             const timer = getTimeRemaining();
@@ -31,9 +32,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
         }
         updateClock();
-        const timeInterval = setInterval(updateClock, 1000);
     }
-    countTimer('30 April 2021');
+    countTimer('30 April 2022');
 
     //меню
     const toggleMenu = () => {
@@ -294,18 +294,26 @@ window.addEventListener('DOMContentLoaded', () => {
 
     //раздел остались вопросы
     let formName = document.getElementById('form2-name'),
+        formName1 = document.getElementById('form1-name'),
         formMess = document.getElementById('form2-message'),
         formEmail = document.getElementById('form2-email'),
+        formEmail1 = document.getElementById('form1-email'),
         formPhone = document.getElementById('form2-phone');
 
         formName.addEventListener('input', () => {
             formName.value = formName.value.replace(/[^А-Яа-я\- ]/,'')
+        });
+        formName1.addEventListener('input', () => {
+            formName1.value = formName1.value.replace(/[^А-Яа-я\- ]/,'')
         });
         formMess.addEventListener('input', () => {
             formMess.value = formMess.value.replace(/[^А-Яа-я\- ]/,'')
         });
         formEmail.addEventListener('input', () => {
             formEmail.value = formEmail.value.replace(/[^A-Za-z\-@_.!~*']/,'')
+        });
+        formEmail1.addEventListener('input', () => {
+            formEmail1.value = formEmail1.value.replace(/[^A-Za-z\-@_.!~*']/,'')
         });
         formPhone.addEventListener('input', () => {
             formPhone.value = formPhone.value.replace(/[^0-9\-()]/,'')
@@ -317,6 +325,12 @@ window.addEventListener('DOMContentLoaded', () => {
             formName.value = formName.value.replace(/^\-+|\-+$/g, '')
             formName.value = formName.value.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ')
         });
+        formName1.addEventListener('blur', () => {
+            formName1.value = formName1.value.replace(/\s+/g, ' ').trim()
+            formName1.value = formName1.value.replace(/[-]+/g, '-')
+            formName1.value = formName1.value.replace(/^\-+|\-+$/g, '')
+            formName1.value = formName1.value.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ')
+        });
         formMess.addEventListener('blur', () => {
             formMess.value = formMess.value.replace(/\s+/g, ' ').trim()
             formMess.value = formMess.value.replace(/[-]+/g, '-')
@@ -326,6 +340,11 @@ window.addEventListener('DOMContentLoaded', () => {
             formEmail.value = formEmail.value.replace(/\s+/g, ' ').trim()
             formEmail.value = formEmail.value.replace(/[-]+/g, '-')
             formEmail.value = formEmail.value.replace(/^\-+|\-+$/g, '')
+        });
+        formEmail1.addEventListener('blur', () => {
+            formEmail1.value = formEmail1.value.replace(/\s+/g, ' ').trim()
+            formEmail1.value = formEmail1.value.replace(/[-]+/g, '-')
+            formEmail1.value = formEmail1.value.replace(/^\-+|\-+$/g, '')
         });
         formPhone.addEventListener('blur', () => {
             formPhone.value = formPhone.value.replace(/\s+/g, ' ').trim()
