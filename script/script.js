@@ -287,7 +287,7 @@ window.addEventListener('DOMContentLoaded', () => {
         event.target.src = event.target.dataset.img.slice(0, -5)+ '.jpg'))
 
     //калькулятор
-    const input = document.querySelectorAll('.calc-item');
+    const input = document.querySelectorAll('input.calc-item');
 
     input.forEach(input => input.addEventListener('input', () => 
         input.value = input.value.replace(/\D/g, '')))
