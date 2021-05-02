@@ -572,4 +572,23 @@
     </div>
     <script src="script/script.js"></script>
   </body>
+  <script src="./plugins/validator/validator.js"></script>
+
+  <script>
+    let formAll = document.querySelectorAll("form");
+    formAll.forEach((elem) => {
+      const valid = new Validator({
+        selector: "elem.id",
+        pattern: {},
+        method: {
+          "form1-phone": [["notEmpty"], ["pattern", "phone"]],
+          "form1-email": [["notEmpty"], ["pattern", "email"]],
+          "form2-phone": [["notEmpty"], ["pattern", "phone"]],
+          "form2-email": [["notEmpty"], ["pattern", "email"]],
+        },
+      });
+
+      valid.init();
+    });
+  </script>
 </html>

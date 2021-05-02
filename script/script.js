@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         updateClock();
     }
-    countTimer('30 April 2022');
+    countTimer('30 May 2022');
 
     //меню
     const toggleMenu = () => {
