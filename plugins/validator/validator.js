@@ -1,6 +1,6 @@
 class Validator {
   constructor({selector, pattern = {}, method}){
-    this.form = document.querySelector(selector);
+    this.form = document.getElementById(selector);
     this.pattern = pattern;
     this.method = method;
     this.elementsForm = [...this.form.elements].filter(item => { 
@@ -67,10 +67,10 @@ class Validator {
     if (elem.nextElementSibling && elem.nextElementSibling.classList.contains('validator-error')){
       return;
     }
-    const errorDiv = document.createElement('div');
-    errorDiv.textContent = 'Ошибка в этом поле';
-    errorDiv.classList.add('validator-error');
-    elem.insertAdjacentElement('afterend', errorDiv); 
+    // const errorDiv = document.createElement('div');
+    // errorDiv.textContent = 'Ошибка в этом поле';
+    // errorDiv.classList.add('validator-error');
+    // elem.insertAdjacentElement('afterend', errorDiv); 
   }
 
   showSuccess(elem){
@@ -107,6 +107,9 @@ class Validator {
     
     if (!this.pattern.email){
       this.pattern.email = /^\w+@\w+\.\w{2,}$/;
+    }
+    if (!this.pattern.name){
+      this.pattern.name = /[^А-Яа-я]/;
     }
   }
 }
