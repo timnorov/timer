@@ -320,7 +320,7 @@ window.addEventListener('DOMContentLoaded', () => {
         });
 
         formName.addEventListener('blur', () => {
-            if(formName !== '') {
+            if(formName.value !== '') {
             formName.value = formName.value.replace(/\s+/g, ' ').trim()
             formName.value = formName.value.replace(/[-]+/g, '-')
             formName.value = formName.value.replace(/^\-+|\-+$/g, '')
@@ -328,7 +328,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         });
         formName1.addEventListener('blur', () => {
-            if (formName1 !== '') {
+            if(formName1.value !=='') {
             formName1.value = formName1.value.replace(/\s+/g, ' ').trim()
             formName1.value = formName1.value.replace(/[-]+/g, '-')
             formName1.value = formName1.value.replace(/^\-+|\-+$/g, '')

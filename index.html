@@ -578,7 +578,7 @@
     const valid1 = new Validator({
       selector: "form1",
       pattern: {
-        name: /[^А-Яа-я]/,
+        name: /[А-Яа-яЁё]/,
       },
       method: {
         "form1-name": [["notEmpty"], ["pattern", "name"]],
@@ -588,7 +588,7 @@
     const valid2 = new Validator({
       selector: "form2",
       pattern: {
-        name: /[^А-Яа-я]/,
+        name: /[А-Яа-яЁё]/,
         message: /[^А-Яа-я]/,
       },
       method: {
