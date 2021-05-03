@@ -320,16 +320,20 @@ window.addEventListener('DOMContentLoaded', () => {
         });
 
         formName.addEventListener('blur', () => {
+            if(formName !== '') {
             formName.value = formName.value.replace(/\s+/g, ' ').trim()
             formName.value = formName.value.replace(/[-]+/g, '-')
             formName.value = formName.value.replace(/^\-+|\-+$/g, '')
             formName.value = formName.value.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ')
+            }
         });
         formName1.addEventListener('blur', () => {
+            if (formName1 !== '') {
             formName1.value = formName1.value.replace(/\s+/g, ' ').trim()
             formName1.value = formName1.value.replace(/[-]+/g, '-')
             formName1.value = formName1.value.replace(/^\-+|\-+$/g, '')
             formName1.value = formName1.value.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ')
+            }
         });
         formMess.addEventListener('blur', () => {
             formMess.value = formMess.value.replace(/\s+/g, ' ').trim()
