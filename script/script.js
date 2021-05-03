@@ -299,6 +299,7 @@ window.addEventListener('DOMContentLoaded', () => {
         formEmail = document.getElementById('form2-email'),
         formEmail1 = document.getElementById('form1-email'),
         formPhone = document.getElementById('form2-phone');
+        formPhone1 = document.getElementById('form1-phone');
 
         formName.addEventListener('input', () => {
             formName.value = formName.value.replace(/[^А-Яа-я\- ]/,'')
@@ -317,6 +318,9 @@ window.addEventListener('DOMContentLoaded', () => {
         });
         formPhone.addEventListener('input', () => {
             formPhone.value = formPhone.value.replace(/[^0-9\-()]/,'')
+        });
+        formPhone1.addEventListener('input', () => {
+            formPhone1.value = formPhone1.value.replace(/[^0-9\-()]/,'')
         });
 
         formName.addEventListener('blur', () => {
@@ -354,6 +358,11 @@ window.addEventListener('DOMContentLoaded', () => {
             formPhone.value = formPhone.value.replace(/\s+/g, ' ').trim()
             formPhone.value = formPhone.value.replace(/[-]+/g, '-')
             formPhone.value = formPhone.value.replace(/^\-+|\-+$/g, '')
+        });
+        formPhone1.addEventListener('blur', () => {
+            formPhone1.value = formPhone1.value.replace(/\s+/g, ' ').trim()
+            formPhone1.value = formPhone1.value.replace(/[-]+/g, '-')
+            formPhone1.value = formPhone1.value.replace(/^\-+|\-+$/g, '')
         });
 
     //калькулятор
