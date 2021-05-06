@@ -10,7 +10,7 @@
                 if (window.screen.width >= 768) {
                     popupInterval = requestAnimationFrame(popupAnimate);
                 } else {
-                    popupContent.style.left = '30%';
+                    popupContent.style.left = '36%';
                 }
             });
         });
@@ -34,10 +34,14 @@
 
             if (target.classList.contains('popup-close')) {
                 popup.style.display = 'none';
+                popupContent.style.left = '-28%';
+                count = 0;
             } else {
                 target = target.closest('.popup-content');
                 if (!target) {
                     popup.style.display = 'none';
+                    popupContent.style.left = '-28%';
+                    count = 0;
                 }
             }
         });
