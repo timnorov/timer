@@ -20,7 +20,7 @@ const toggleMenu = () => {
                 }
             } else if (target.closest('.active-menu')) {
 
-                if (!target.classList.contains('active-menu') && !target.classList.contains('close-btn')) {
+                if (!target.classList.contains('active-menu') && !target.classList.contains('close-btn') && !target.tagName === 'li') {
                     menu.classList.remove('active-menu');
                     target = event.menuItems;
                     event.preventDefault();

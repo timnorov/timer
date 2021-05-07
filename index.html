@@ -570,7 +570,7 @@
         </div>
       </div>
     </div>
-    <script src="./dist/dev-bundle.js"></script>
+    <script src="./dist/bundle.js"></script>
   </body>
   <script src="./plugins/validator/validator.js"></script>
 
@@ -578,7 +578,7 @@
     const valid1 = new Validator({
       selector: "form1",
       pattern: {
-        name: /[А-Яа-яЁё]/,
+        name: /[А-Яа-яЁё]{2}/,
       },
       method: {
         "form1-name": [["notEmpty"], ["pattern", "name"]],
@@ -590,7 +590,7 @@
     const valid2 = new Validator({
       selector: "form2",
       pattern: {
-        name: /[А-Яа-яЁё]/,
+        name: /[А-Яа-яЁё]{2}/,
         message: /[^А-Яа-я]/,
       },
       method: {
@@ -604,7 +604,7 @@
     const valid3 = new Validator({
       selector: "form3",
       pattern: {
-        name: /[А-Яа-яЁё]/,
+        name: /[А-Яа-яЁё]{2}/,
       },
       method: {
         "form3-name": [["notEmpty"], ["pattern", "name"]],
